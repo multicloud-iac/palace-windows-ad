@@ -11,3 +11,11 @@ variable "admin_password" {
   description = "admin password for Windows VM"
   default     = "pTFE1234!"
 }
+
+variable "ttl" {
+  description = "TTL tag to assign to instance"
+}
+
+variable "owner" {
+  description = "Ownert tag to assign to instance"
+}
