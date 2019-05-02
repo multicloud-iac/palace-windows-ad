@@ -12,6 +12,11 @@ module "windowsserver" {
   vm_os_simple        = "WindowsServer"
   public_ip_dns       = ["${var.windows_dns_prefix}"]
   vnet_subnet_id      = "${module.network.vnet_subnets[0]}"
+
+  tags = {
+    Owner = "${var.owner}"
+    TTL   = "${var.ttl}"
+  }
 }
 
 module "network" {
@@ -20,4 +25,9 @@ module "network" {
   location            = "${var.location}"
   resource_group_name = "${var.windows_dns_prefix}-rc"
   allow_ssh_traffic   = true
+
+  tags = {
+    Owner = "${var.owner}"
+    TTL   = "${var.ttl}"
+  }
 }
