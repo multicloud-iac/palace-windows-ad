@@ -4,12 +4,13 @@ terraform {
 
 module "windowsserver" {
   source              = "Azure/compute/azurerm"
-  version             = "1.1.5"
+  version             = "1.2.1"
   location            = "${var.location}"
   resource_group_name = "${var.windows_dns_prefix}-rc"
   vm_hostname         = "pwc-ptfe"
   admin_password      = "${var.admin_password}"
   vm_os_simple        = "WindowsServer"
+  is_windows_image    = "true"
   public_ip_dns       = ["${var.windows_dns_prefix}"]
   vnet_subnet_id      = "${module.network.vnet_subnets[0]}"
 
